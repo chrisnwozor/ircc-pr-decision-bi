@@ -1,0 +1,1153 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/13/2026 5:48:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ELDOV"
+  DTS:CreatorName="ELDOV\HOME"
+  DTS:DTSID="{A31EB1F6-DFCB-45CC-BE24-90B0B7762A36}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Load_Occ_PNP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{288C5537-8A9F-4F7A-B972-4A6389012133}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IntDest CSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{57CE9FB7-9431-48CB-9930-825EB530BDF0}"
+      DTS:ObjectName="IntDest CSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\chris\Desktop\ircc-project\raw\ODP-EE_Candidates-IntDest.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_YEAR"
+              DTS:DTSID="{18C4756A-2ADA-4888-B2CC-932E115FBBED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_ANNEÉ"
+              DTS:DTSID="{C3A09109-984A-4C18-ADE7-E691E6E938BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_PROVINCE_TERRITORY"
+              DTS:DTSID="{4A64253B-2072-4395-A2AA-BC1B63FC170C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROVINCE_TERRITOIRE"
+              DTS:DTSID="{596B59FA-58EC-43F6-9928-8BC1583F461E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_INVITATION_CATEGORY"
+              DTS:DTSID="{822D2880-6724-4AE9-B1CD-94A4FB083BDC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_CATEGORIE_D'INVITATION"
+              DTS:DTSID="{0CC3AE62-B310-4BAE-9A84-1831D74B160C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOTAL"
+              DTS:DTSID="{D84160D9-38D7-4A67-98E3-76A942871EEF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.IRCC_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3D7F6220-3A75-48DF-AE4B-71D8058FA54D}"
+      DTS:ObjectName="localhost.IRCC_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=IRCC_DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Trust Server Certificate=True;Application Name=SSIS-Load_IntDest-{3D7F6220-3A75-48DF-AE4B-71D8058FA54D}localhost.IRCC_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Occ_CEC]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{795B9299-F4AC-459F-B634-E11619E9E628}"
+      DTS:ObjectName="Occ_CEC">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\chris\Desktop\ircc-project\raw\ODP-EE_candidates-Occ_CEC.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_YEAR"
+              DTS:DTSID="{2EE01D67-ED9B-4987-8388-94EE6500298C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_YEAR"
+              DTS:DTSID="{136D71A5-0018-4C1A-8106-E762CD2D96D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_PROVINCE_TERRITORY"
+              DTS:DTSID="{1B513CF0-833D-403B-B371-B28783D8FF2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROVINCE_TERRITOIRE"
+              DTS:DTSID="{1F7331E1-A218-4235-BB9B-D7B12AA932F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_OCCUPATION"
+              DTS:DTSID="{E41411F3-D3B8-40A0-A8E3-14D5C1303D61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROFESSION"
+              DTS:DTSID="{FF6B9EE0-4EE1-43F6-9F18-F2BCBB25B38C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOTAL"
+              DTS:DTSID="{22392B0D-BD7C-4318-9602-EB7C0466DADB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Occ_FST]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B579F8DB-EC96-49F2-A6BE-3C80CFEC2D10}"
+      DTS:ObjectName="Occ_FST">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\chris\Desktop\ircc-project\raw\ODP-EE_candidates-Occ_FST.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_YEAR"
+              DTS:DTSID="{BB54CC34-52CD-43DA-87D1-09005750B1A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_YEAR"
+              DTS:DTSID="{E2CB2030-A0FD-4D17-98B5-D32F7082AA17}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_PROVINCE_TERRITORY"
+              DTS:DTSID="{C548F277-F8FF-4C07-B418-FEDB2BC50728}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROVINCE_TERRITOIRE"
+              DTS:DTSID="{0F341072-1436-4715-AD81-79838815DBA8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_OCCUPATION"
+              DTS:DTSID="{E2EFACE6-04EA-4A8A-9286-9426AADD5EDA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROFESSION"
+              DTS:DTSID="{9F029036-3F90-48F3-8BD3-D07EF5A033A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOTAL"
+              DTS:DTSID="{7553EE61-A50A-45B9-B136-F3F0C6EDC5A7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Occ_PNP]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{85FC7030-A05F-4A6C-9D40-07F882E64E19}"
+      DTS:ObjectName="Occ_PNP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\chris\Desktop\ircc-project\raw\ODP-EE_candidates-Occ_PNP.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_YEAR"
+              DTS:DTSID="{BB88ED17-6EDB-4B02-BDE7-F46E1A8EB863}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_YEAR"
+              DTS:DTSID="{CFDDA780-7B0F-4DBB-A865-3B36719D6B63}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_PROVINCE_TERRITORY"
+              DTS:DTSID="{7232EAF4-3187-48D0-A8B5-468198DC2606}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROVINCE_TERRITOIRE"
+              DTS:DTSID="{E8EA3503-A9CA-4F05-BCB2-4894A9144065}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_OCCUPATION"
+              DTS:DTSID="{551201FF-5D57-4059-9B12-62D61D422722}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROFESSION"
+              DTS:DTSID="{82AC2054-3B9C-47F7-B5D8-642F381A2B42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOTAL"
+              DTS:DTSID="{2F595062-94F6-43FD-8333-64245C811388}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4D1A414-67DA-41C3-83BC-AE49FE3833D0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">ODP-EE_candidates-Occ_PNP.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load OccPNP"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EE38E8C5-FB65-4191-A656-14EC03E2D25D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load OccPNP"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load OccPNP\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load OccPNP\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load OccPNP\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="260"
+                      lineageId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]"
+                      name="SourceFile"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,260)@[User::SourceFileName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,260)@[User::SourceFileName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output].Columns[Program]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output].Columns[Program]"
+                      name="Program"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,10)"PNP"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,10)"PNP"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load OccPNP\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load OccPNP\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load OccPNP\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Occ_PNP]"
+                  connectionManagerRefId="Package.ConnectionManagers[Occ_PNP]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_YEAR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_YEAR]"
+                      length="10"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_YEAR]"
+                      name="EN_YEAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_PROVINCE_TERRITORY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      length="100"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_PROVINCE_TERRITORY]"
+                      name="EN_PROVINCE_TERRITORY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROVINCE_TERRITOIRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      length="100"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROVINCE_TERRITOIRE]"
+                      name="FR_PROVINCE_TERRITOIRE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[TOTAL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TOTAL]"
+                      length="20"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[TOTAL]"
+                      name="TOTAL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_YEAR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_YEAR]"
+                      length="10"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_YEAR]"
+                      name="FR_YEAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_OCCUPATION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_OCCUPATION]"
+                      length="400"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_OCCUPATION]"
+                      name="EN_OCCUPATION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROFESSION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_PROFESSION]"
+                      length="400"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROFESSION]"
+                      name="FR_PROFESSION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="EN_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      dataType="wstr"
+                      length="100"
+                      name="EN_PROVINCE_TERRITORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FR_PROVINCE_TERRITOIRE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TOTAL]"
+                      dataType="wstr"
+                      length="20"
+                      name="TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="FR_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_OCCUPATION]"
+                      dataType="wstr"
+                      length="400"
+                      name="EN_OCCUPATION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_PROFESSION]"
+                      dataType="wstr"
+                      length="400"
+                      name="FR_PROFESSION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load OccPNP\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[Occupation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load OccPNP\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.IRCC_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.IRCC_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EN_YEAR]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="EN_YEAR"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_YEAR]"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_YEAR]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EN_PROVINCE_TERRITORY]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="EN_PROVINCE_TERRITORY"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_PROVINCE_TERRITORY]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FR_PROVINCE_TERRITOIRE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="FR_PROVINCE_TERRITOIRE"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROVINCE_TERRITOIRE]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOTAL]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TOTAL"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL]"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[TOTAL]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceFile]"
+                      cachedDataType="wstr"
+                      cachedLength="260"
+                      cachedName="SourceFile"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      lineageId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EN_OCCUPATION]"
+                      cachedDataType="wstr"
+                      cachedLength="400"
+                      cachedName="EN_OCCUPATION"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_OCCUPATION]"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[EN_OCCUPATION]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FR_PROFESSION]"
+                      cachedDataType="wstr"
+                      cachedLength="400"
+                      cachedName="FR_PROFESSION"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_OCCUPATION]"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROFESSION]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FR_YEAR]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FR_YEAR"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_YEAR]"
+                      lineageId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output].Columns[FR_YEAR]" />
+                    <inputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Program]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Program"
+                      externalMetadataColumnId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Program]"
+                      lineageId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output].Columns[Program]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="EN_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="FR_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      dataType="wstr"
+                      length="100"
+                      name="EN_PROVINCE_TERRITORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FR_PROVINCE_TERRITOIRE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL]"
+                      dataType="wstr"
+                      length="20"
+                      name="TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp2"
+                      name="LoadDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      dataType="wstr"
+                      length="260"
+                      name="SourceFile" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_OCCUPATION]"
+                      dataType="wstr"
+                      length="400"
+                      name="EN_OCCUPATION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_OCCUPATION]"
+                      dataType="wstr"
+                      length="400"
+                      name="FR_OCCUPATION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Program]"
+                      dataType="wstr"
+                      length="10"
+                      name="Program" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load OccPNP\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load OccPNP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load OccPNP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load OccPNP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load OccPNP.Paths[Derived Column Output]"
+              endId="Package\DFT Load OccPNP\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Load OccPNP\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load OccPNP.Paths[Flat File Source Output]"
+              endId="Package\DFT Load OccPNP\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load OccPNP\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Truncate stgOccPNP"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4C7FB226-48AA-49B1-8F17-DF9EE8048E2D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Truncate stgOccPNP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D7F6220-3A75-48DF-AE4B-71D8058FA54D}"
+          SQLTask:SqlStatementSource="DELETE FROM stg.Occupation WHERE Program = 'PNP';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3BA7196F-8C23-4876-B14B-FB125CBA101B}"
+      DTS:From="Package\SQL Truncate stgOccPNP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Load OccPNP" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\DFT Load OccPNP"
+          TopLeft="350.833314164646,86.6666660639975" />
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\SQL Truncate stgOccPNP"
+          TopLeft="280.833317989277,9.53333326703973" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="380.433317989277,51.1333332670397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.999996175369,35.5333327969578"
+              Start="0,0"
+              End="53.999996175369,28.0333327969578">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.7666663984789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.7666663984789"
+                    Point2="0,17.7666663984789"
+                    Point3="4,17.7666663984789" />
+                  <mssgle:LineSegment
+                    End="49.999996175369,17.7666663984789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.999996175369,17.7666663984789"
+                    Point2="53.999996175369,17.7666663984789"
+                    Point3="53.999996175369,21.7666663984789" />
+                  <mssgle:LineSegment
+                    End="53.999996175369,28.0333327969578" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load OccPNP">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load OccPNP\OLE DB Destination"
+          TopLeft="363.333313481676,163.799998860955" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT Load OccPNP\Derived Column"
+          TopLeft="368.333313208488,101.399999294877" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\DFT Load OccPNP\Flat File Source"
+          TopLeft="366.666646632884,38.1333330681589" />
+        <EdgeLayout
+          Id="Package\DFT Load OccPNP.Paths[Flat File Source Output]"
+          TopLeft="366.666646632884,58.9333330681589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="1.66666657560415,63.2666662267182"
+              Start="0,0"
+              End="-5.83333342439585,63.2666662267182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,59.2666662267182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,59.2666662267182"
+                    Point2="-22.5,63.2666662267182"
+                    Point3="-18.5,63.2666662267182" />
+                  <mssgle:LineSegment
+                    End="-5.83333342439585,63.2666662267182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load OccPNP.Paths[Derived Column Output]"
+          TopLeft="368.333313208488,127.799999294877">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-4.99999972681212,56.7999995660782"
+              Start="0,0"
+              End="-12.4999997268121,56.7999995660782">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-23.4999997268121,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.4999997268121,0"
+                    Point2="-27.4999997268121,0"
+                    Point3="-27.4999997268121,4" />
+                  <mssgle:LineSegment
+                    End="-27.4999997268121,52.7999995660782" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.4999997268121,52.7999995660782"
+                    Point2="-27.4999997268121,56.7999995660782"
+                    Point3="-23.4999997268121,56.7999995660782" />
+                  <mssgle:LineSegment
+                    End="-12.4999997268121,56.7999995660782" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load OccPNP\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

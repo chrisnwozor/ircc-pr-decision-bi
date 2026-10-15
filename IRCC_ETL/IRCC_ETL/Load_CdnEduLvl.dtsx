@@ -1,0 +1,1034 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/13/2026 5:48:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ELDOV"
+  DTS:CreatorName="ELDOV\HOME"
+  DTS:DTSID="{D56E72C1-C445-417D-B740-E08A152D1672}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Load_CdnEduLvl"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{A4EA3178-0079-47CF-B01F-2B8550FF9055}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CdnEduLvl CSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{694832AD-D6B0-4220-8403-4C0D727323AF}"
+      DTS:ObjectName="CdnEduLvl CSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\chris\Desktop\ircc-project\raw\ODP-EE_candidates-CdnEduLvl.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_YEAR"
+              DTS:DTSID="{CF57D74A-6989-4402-A26C-0AD350986ECA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_YEAR"
+              DTS:DTSID="{7A2DC619-5986-4135-93CD-BBE76D8354AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_PROVINCE_TERRITORY"
+              DTS:DTSID="{2C39519A-12E4-4EA5-9B52-EBFD9912BC81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROVINCE_TERRITOIRE"
+              DTS:DTSID="{C7BEE54F-302B-4F21-8197-2678C5410479}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_INVITATION_CATEGORY"
+              DTS:DTSID="{A1CF9449-9FAD-44F7-AEF6-72DC9C23B482}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_CATEGORIE_D'INVITATION"
+              DTS:DTSID="{88F91A69-BB64-407D-B0CA-553671AF6E22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="300"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_CANADIAN_EDUCATION_LEVEL"
+              DTS:DTSID="{F0EFD79F-2B18-4333-A195-4141B1F175A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_NIVEAU_D'ÉDUCATION_CANADIEN"
+              DTS:DTSID="{014F4329-786F-434E-9823-E0A857C2A0B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOTAL"
+              DTS:DTSID="{0206E28F-910E-43D1-9AC1-766C6E5524ED}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IntDest CSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{99B6874D-E511-43A2-8610-9A79F8B93EEB}"
+      DTS:ObjectName="IntDest CSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\chris\Desktop\ircc-project\raw\ODP-EE_Candidates-IntDest.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_YEAR"
+              DTS:DTSID="{065965AE-B23B-48FD-9E56-788C9D6D2699}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_ANNEÉ"
+              DTS:DTSID="{01D0FF50-1F5C-4F80-879A-10ACFB24ED9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_PROVINCE_TERRITORY"
+              DTS:DTSID="{CE787B52-E9E0-482E-B526-6BF252A87C97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_PROVINCE_TERRITOIRE"
+              DTS:DTSID="{38DA1DA3-0C50-46FF-821F-A94DF3FF7D14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EN_INVITATION_CATEGORY"
+              DTS:DTSID="{ACC9502C-D69F-47C7-8787-F2F062C91AB8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FR_CATEGORIE_D'INVITATION"
+              DTS:DTSID="{AABC4461-8517-422F-A355-7A1D7BA22D94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOTAL"
+              DTS:DTSID="{0E6A315F-D0F6-482F-8C86-2F0F11550B3B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.IRCC_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E67C2228-E999-443D-9A0D-1BA14793669B}"
+      DTS:ObjectName="localhost.IRCC_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=IRCC_DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Trust Server Certificate=True;Application Name=SSIS-Load_IntDest-{E67C2228-E999-443D-9A0D-1BA14793669B}localhost.IRCC_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29C0BB2B-8DDE-4E37-9EA9-0EA7BB868FFF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">ODP-EE_Candidates-CdnEduLvl.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load CdnEduLvl"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{86B08831-9632-4340-9FFD-E522B13E9A97}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load CdnEduLvl"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load CdnEduLvl\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load CdnEduLvl\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load CdnEduLvl\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="260"
+                      lineageId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]"
+                      name="SourceFile"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,260)@[User::SourceFileName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,260)@[User::SourceFileName]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load CdnEduLvl\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load CdnEduLvl\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load CdnEduLvl\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CdnEduLvl CSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[CdnEduLvl CSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_YEAR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_YEAR]"
+                      length="10"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_YEAR]"
+                      name="EN_YEAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_PROVINCE_TERRITORY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      length="100"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_PROVINCE_TERRITORY]"
+                      name="EN_PROVINCE_TERRITORY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROVINCE_TERRITOIRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      length="100"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROVINCE_TERRITOIRE]"
+                      name="FR_PROVINCE_TERRITOIRE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_INVITATION_CATEGORY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_INVITATION_CATEGORY]"
+                      length="200"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_INVITATION_CATEGORY]"
+                      name="EN_INVITATION_CATEGORY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_CATEGORIE_D'INVITATION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_CATEGORIE_D'INVITATION]"
+                      length="200"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_CATEGORIE_D'INVITATION]"
+                      name="FR_CATEGORIE_D'INVITATION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[TOTAL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TOTAL]"
+                      length="20"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[TOTAL]"
+                      name="TOTAL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_YEAR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_YEAR]"
+                      length="10"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_YEAR]"
+                      name="FR_YEAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_CANADIAN_EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_CANADIAN_EDUCATION_LEVEL]"
+                      length="300"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_CANADIAN_EDUCATION_LEVEL]"
+                      name="EN_CANADIAN_EDUCATION_LEVEL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_NIVEAU_D'ÉDUCATION_CANADIEN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_NIVEAU_D'ÉDUCATION_CANADIEN]"
+                      length="200"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_NIVEAU_D'ÉDUCATION_CANADIEN]"
+                      name="FR_NIVEAU_D'ÉDUCATION_CANADIEN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="EN_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      dataType="wstr"
+                      length="100"
+                      name="EN_PROVINCE_TERRITORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FR_PROVINCE_TERRITOIRE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_INVITATION_CATEGORY]"
+                      dataType="wstr"
+                      length="200"
+                      name="EN_INVITATION_CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_CATEGORIE_D'INVITATION]"
+                      dataType="wstr"
+                      length="200"
+                      name="FR_CATEGORIE_D'INVITATION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TOTAL]"
+                      dataType="wstr"
+                      length="20"
+                      name="TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="FR_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EN_CANADIAN_EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="300"
+                      name="EN_CANADIAN_EDUCATION_LEVEL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FR_NIVEAU_D'ÉDUCATION_CANADIEN]"
+                      dataType="wstr"
+                      length="200"
+                      name="FR_NIVEAU_D'ÉDUCATION_CANADIEN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load CdnEduLvl\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[CdnEduLvl]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.IRCC_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.IRCC_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EN_YEAR]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="EN_YEAR"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_YEAR]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_YEAR]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EN_PROVINCE_TERRITORY]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="EN_PROVINCE_TERRITORY"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_PROVINCE_TERRITORY]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FR_PROVINCE_TERRITOIRE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="FR_PROVINCE_TERRITOIRE"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_PROVINCE_TERRITOIRE]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EN_INVITATION_CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="EN_INVITATION_CATEGORY"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_INVITATION_CATEGORY]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_INVITATION_CATEGORY]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOTAL]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TOTAL"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[TOTAL]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FR_CATEGORIE_D'INVITATION]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="FR_CATEGORIE_D'INVITATION"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_INVITATION_CATEGORY]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_CATEGORIE_D'INVITATION]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceFile]"
+                      cachedDataType="wstr"
+                      cachedLength="260"
+                      cachedName="SourceFile"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      lineageId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EN_CANADIAN_EDUCATION_LEVEL]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="EN_CANADIAN_EDUCATION_LEVEL"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_EDUCATION_LEVEL]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[EN_CANADIAN_EDUCATION_LEVEL]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FR_NIVEAU_D'ÉDUCATION_CANADIEN]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="FR_NIVEAU_D'ÉDUCATION_CANADIEN"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_EDUCATION_LEVEL]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_NIVEAU_D'ÉDUCATION_CANADIEN]" />
+                    <inputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FR_YEAR]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FR_YEAR"
+                      externalMetadataColumnId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_YEAR]"
+                      lineageId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output].Columns[FR_YEAR]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="EN_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_YEAR]"
+                      dataType="wstr"
+                      length="10"
+                      name="FR_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_PROVINCE_TERRITORY]"
+                      dataType="wstr"
+                      length="100"
+                      name="EN_PROVINCE_TERRITORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_PROVINCE_TERRITOIRE]"
+                      dataType="wstr"
+                      length="100"
+                      name="FR_PROVINCE_TERRITOIRE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_INVITATION_CATEGORY]"
+                      dataType="wstr"
+                      length="200"
+                      name="EN_INVITATION_CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_INVITATION_CATEGORY]"
+                      dataType="wstr"
+                      length="200"
+                      name="FR_INVITATION_CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL]"
+                      dataType="wstr"
+                      length="20"
+                      name="TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp2"
+                      name="LoadDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      dataType="wstr"
+                      length="260"
+                      name="SourceFile" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EN_EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="300"
+                      name="EN_EDUCATION_LEVEL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FR_EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="300"
+                      name="FR_EDUCATION_LEVEL" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load CdnEduLvl\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load CdnEduLvl\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load CdnEduLvl\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load CdnEduLvl.Paths[Derived Column Output]"
+              endId="Package\DFT Load CdnEduLvl\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Load CdnEduLvl\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load CdnEduLvl.Paths[Flat File Source Output]"
+              endId="Package\DFT Load CdnEduLvl\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load CdnEduLvl\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Truncate stgCdnEduLvl"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{222882EC-52CF-41DD-9B88-B65EF64A2E95}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Truncate stgCdnEduLvl"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E67C2228-E999-443D-9A0D-1BA14793669B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.CdnEduLvl;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E8D304B1-76E1-4543-A896-C7D1EBE75CD6}"
+      DTS:From="Package\SQL Truncate stgCdnEduLvl"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Load CdnEduLvl" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\DFT Load CdnEduLvl"
+          TopLeft="350.833314164646,86.6666660639975" />
+        <NodeLayout
+          Size="210.4,41.6"
+          Id="Package\SQL Truncate stgCdnEduLvl"
+          TopLeft="280.833317989277,9.53333326703972" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="386.033317989277,51.1333332670397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.999996175369,35.5333327969578"
+              Start="0,0"
+              End="53.999996175369,28.0333327969578">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.7666663984789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.7666663984789"
+                    Point2="0,17.7666663984789"
+                    Point3="4,17.7666663984789" />
+                  <mssgle:LineSegment
+                    End="49.999996175369,17.7666663984789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.999996175369,17.7666663984789"
+                    Point2="53.999996175369,17.7666663984789"
+                    Point3="53.999996175369,21.7666663984789" />
+                  <mssgle:LineSegment
+                    End="53.999996175369,28.0333327969578" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load CdnEduLvl">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load CdnEduLvl\OLE DB Destination"
+          TopLeft="363.333313481676,181.999998734395" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\DFT Load CdnEduLvl\Flat File Source"
+          TopLeft="366.666646632884,38.1333330681589" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT Load CdnEduLvl\Derived Column"
+          TopLeft="368.333313208488,101.399999294877" />
+        <EdgeLayout
+          Id="Package\DFT Load CdnEduLvl.Paths[Derived Column Output]"
+          TopLeft="446.833313345082,142.999999294877">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.9999994395175"
+              Start="0,0"
+              End="0,31.4999994395175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.4999994395175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load CdnEduLvl.Paths[Flat File Source Output]"
+          TopLeft="366.666646632884,58.9333330681589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="1.66666657560415,63.2666662267182"
+              Start="0,0"
+              End="-5.83333342439585,63.2666662267182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,59.2666662267182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,59.2666662267182"
+                    Point2="-22.5,63.2666662267182"
+                    Point3="-18.5,63.2666662267182" />
+                  <mssgle:LineSegment
+                    End="-5.83333342439585,63.2666662267182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load CdnEduLvl\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
